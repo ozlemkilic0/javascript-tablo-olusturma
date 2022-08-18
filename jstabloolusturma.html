@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <title>Document</title>
+        <style>
+            label {
+                display: block;
+            }
+            table,
+            td {
+                border: 2px solid rgb(225, 21, 21);
+            }
+        </style>
+    </head>
+    <body>
+        <label>Satır sayısı : </label>
+        <input type="text" id="satir" />
+        <label>Sütun sayısı</label>
+        <input type="text" id="sutun" />
+        <label><button id="olustur">oluştur</button></label>
+        <div id="goster"></div>
+
+        <script>
+            document.getElementById("olustur");
+            var olustur = document.getElementById("olustur");
+            olustur.onclick = function () {
+                var sayac = 1;
+                var satir = document.getElementById("satir").value;
+                var sutun = document.getElementById("sutun").value;
+
+                var table = document.createElement("table");
+                for (var i = 0; i < satir; i++) {
+                    var tr = document.createElement("tr");
+                    table.appendChild(tr);
+                    for (var j = 0; j < sutun; j++) {
+                        var td = document.createElement("td");
+                        td.innerHTML = sayac++;
+                        tr.appendChild(td);
+                    }
+                }
+                document.getElementById("goster").innerHTML = "";
+                document.getElementById("goster").appendChild(table);
+            };
+        </script>
+    </body>
+</html>
